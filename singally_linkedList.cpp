@@ -75,3 +75,11 @@ int main(){
 	l.deleteNode(1);
 	l.print_linked_list();
 }
+
+
+
+/*
+1 -> 2 -> 3 -> 4 -> 5
+
+
+*/
