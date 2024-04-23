@@ -56,11 +56,26 @@ public:
 	}
 	void print_linked_list(){
 		Node *current_node = head;
+		cout << endl << " The current LinkedList is : " << endl;
 		while(current_node != NULL){
 			cout << " " << current_node->data;
 			current_node = current_node->next;
 		}
 		cout << endl;
+	}
+	void reverse_linked_list(){
+		Node *current_node = head;
+		Node *prev_node = NULL;
+		Node *next_node;
+		while(current_node != NULL){
+			next_node = current_node->next;
+			current_node->next = prev_node;
+			prev_node = current_node;
+			if(next_node == NULL)
+				head = current_node;
+			current_node = next_node;
+			
+		}
 	}
 };
 
@@ -71,8 +86,16 @@ int main(){
 	l.insertNode(2);
 	l.insertNode(5);
 	l.insertNode(6);
+
 	l.print_linked_list();
+
 	l.deleteNode(1);
+	l.print_linked_list();
+
+	l.reverse_linked_list();
+	l.print_linked_list();
+	
+	l.deleteNode(2);
 	l.print_linked_list();
 }
 
@@ -80,6 +103,15 @@ int main(){
 
 /*
 1 -> 2 -> 3 -> 4 -> 5
+
+prev = NULL;
+current = head;
+next = NULL;
+inside loop :
+	next = current->next
+	current->next = prev;
+	prev = currnet;
+	currnet = next;
 
 
 */
